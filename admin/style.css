@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Background utama */
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; /* Warna navbar */
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar .buttons button {
+    background-color: #2a9d8f; /* Warna tombol navbar */
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar .buttons button:hover {
+    background-color: #21867a;
+  }
+  
+  /* Main Content */
+  .container {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4a261; /* Background container */
+  }
+  
+  h1 {
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff8f0; /* Background input */
+  }
+  
+  .form-group button {
+    background-color: #2a9d8f; /* Background tombol form */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-group button:hover {
+    background-color: #21867a;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white; /* Background tabel */
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  table th, table td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #264653; /* Background header tabel */
+    color: white;
+  }
+  
+  table tr:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #2a9d8f; /* Background footer */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+  }
+  
+  /* Full Page Height */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+  }
+  
