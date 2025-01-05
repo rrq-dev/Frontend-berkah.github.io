@@ -2,7 +2,8 @@
 const signUpButton = document.querySelector(".sign-up");
 if (signUpButton) {
   signUpButton.addEventListener("click", () => {
-    window.location.href = "/register/register.html"; // Navigasi ke halaman register.html
+    window.location.href =
+      "https://rrq-dev.github.io/Frontend-berkah.github.io/register/register.html"; // Navigasi ke halaman register.html
   });
 }
 
