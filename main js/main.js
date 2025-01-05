@@ -2,7 +2,7 @@
 const signUpButton = document.querySelector(".sign-up");
 if (signUpButton) {
   signUpButton.addEventListener("click", () => {
-    window.location.href = "register.html"; // Navigasi ke halaman register.html
+    window.location.href = "/register"; // Navigasi ke halaman register.html
   });
 }
 
