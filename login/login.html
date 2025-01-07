@@ -6,20 +6,14 @@
     <title>Login</title>
     <link rel="stylesheet" href="login.css" />
     <script src="login.js" defer></script>
+    <!-- Tambahkan defer untuk memuat JS setelah DOM selesai -->
   </head>
   <body>
     <form id="login-form">
-      <!-- Pastikan ID sesuai dengan yang ada di JavaScript -->
+      <!-- Perbaikan ID sesuai dengan yang di-referensikan di JavaScript -->
       <h1>Login</h1>
       <input id="email" type="email" placeholder="Email Address" required />
       <input id="password" type="password" placeholder="Password" required />
-
-      <!-- Dropdown untuk memilih role -->
-      <select id="role" name="role" required>
-        <option value="" disabled selected>Select your role</option>
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
-      </select>
 
       <a href="#">Forgot password?</a>
       <button type="submit">Login</button>
