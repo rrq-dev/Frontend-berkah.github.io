@@ -1,29 +1,25 @@
-// Pastikan ID form sesuai dengan HTML
-const loginForm = document.getElementById("loginForm");
+const loginForm = document.getElementById("login-form"); // Pastikan ID ini benar
 
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Mencegah pengiriman form default
 
-  // Ambil nilai dari input form
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  const role = document.getElementById("role").value; // Ambil nilai role
 
   // Validasi input
-  if (!email || !password || !role) {
-    alert("Silakan masukkan email, password, dan pilih role.");
+  if (!email || !password) {
+    alert("Silakan masukkan email dan password.");
     return;
   }
 
-  console.log("Mencoba login dengan:", { email, password, role });
+  console.log("Mencoba login dengan:", { email, password });
 
-  // Kirim data login ke server
   fetch("http://localhost:8080/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password, role }), // Tambahkan role ke body
+    body: JSON.stringify({ email, password }),
   })
     .then((response) => {
       console.log("Status respons:", response.status); // Log status respons
@@ -47,17 +43,16 @@ loginForm.addEventListener("submit", (event) => {
           console.log("User ID disimpan:", data.user.id); // Log user ID yang disimpan
         }
         // Arahkan pengguna berdasarkan peran
-        if (role === "admin") {
-          window.location.href = "admin_home.html"; // Halaman untuk admin
-        } else if (role === "user") {
-          window.location.href = "user_home.html"; // Halaman untuk pengguna biasa
+        if (data.user && data.user.role === "admin") {
+          window.location.href = "admin/dashboard.html"; // Halaman untuk admin
         } else {
-          alert("Role tidak dikenal.");
+          window.location.href = "index.html"; // Halaman untuk pengguna biasa
         }
       } else {
         alert("Login gagal: Tidak ada token yang diterima.");
       }
     })
+
     .catch((error) => {
       console.error("Ada masalah dengan operasi fetch:", error);
       alert("Login gagal: " + error.message);

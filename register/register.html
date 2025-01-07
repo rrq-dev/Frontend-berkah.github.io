@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="register.css" />
-    <script src="register.js"></script>
+    <script src="assets/javascript/register.js" defer></script>
+    <!-- Tambahkan defer untuk memuat JS setelah DOM selesai -->
   </head>
   <body>
-    <form id="registerForm">
+    <form id="register-form">
+      <!-- Perbaikan ID sesuai dengan yang di-referensikan di JavaScript -->
       <h1>Sign up</h1>
-      <input type="text" placeholder="Username" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="password" placeholder="Password" required />
-      <input type="password" placeholder="Confirm password" required />
-      <select required>
-        <option value="" disabled selected>Select Role</option>
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-      </select>
+      <input id="username" type="text" placeholder="Username" required />
+      <input id="email" type="email" placeholder="Email Address" required />
+      <input id="password" type="password" placeholder="Password" required />
+      <input
+        id="confirm-password"
+        type="password"
+        placeholder="Confirm password"
+        required
+      />
+
       <button type="submit">Signup</button>
       <p>
         Already have an account?
