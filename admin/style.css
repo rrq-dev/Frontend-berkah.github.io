@@ -7,12 +7,15 @@ body {
   
   /* Navbar */
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white; /* Warna navbar */
-    padding: 10px 20px;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #ffffff; /* Warna putih untuk navbar */
+  border-bottom: 4px solid #f4a261; /* Garis pembatas oranye */
+  border-radius: 12px; /* Sudut melengkung */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  margin: 16px; 
   }
   
   .navbar a {
