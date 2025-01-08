@@ -11,9 +11,9 @@
     <div class="navbar">
       <div class="logo">Dashboard Admin</div>
       <div>
-        <a href="#">Home</a>
-        <a href="#">Users</a>
-        <a href="#">Settings</a>
+        <a href="#" id="home-link">Home</a>
+        <a href="#" id="users-link">Users</a>
+        <a href="#" id="settings-link">Settings</a>
       </div>
       <div class="buttons">
         <button id="contact-btn">Contact</button>
@@ -23,7 +23,7 @@
 
     <!-- Main Content -->
     <div class="container">
-      <h1>Manage Users</h1>
+      <h1>Manage Mosques</h1>
       <div class="form-group">
         <input type="text" id="location" placeholder="Enter Location" />
         <input type="text" id="address" placeholder="Enter Address" />
@@ -36,6 +36,8 @@
             <th>Location</th>
             <th>Address</th>
             <th>Description</th>
+            <th>Actions</th>
+            <!-- Tambahkan kolom untuk edit dan delete -->
           </tr>
         </thead>
         <tbody id="user-table">
