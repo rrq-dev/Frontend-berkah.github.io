@@ -30,7 +30,7 @@ async function loadLocations(token) {
         "Content-Type": "application/json",
       },
     });
-
+    console.log(response);
     if (!response.ok) {
       throw new Error("Gagal memuat data masjid.");
     }
