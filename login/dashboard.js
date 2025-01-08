@@ -84,16 +84,14 @@ function createTableRow(location) {
   // Edit button
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
-  editBtn.style.backgroundColor = "#e76f51";
-  editBtn.style.color = "white";
+  editBtn.className = "edit-btn"; // Tambahkan class CSS
   editBtn.addEventListener("click", () => handleEdit(location));
   actionsCell.appendChild(editBtn);
 
   // Delete button
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
-  deleteBtn.style.backgroundColor = "#e63946";
-  deleteBtn.style.color = "white";
+  deleteBtn.className = "delete-btn"; // Tambahkan class CSS
   deleteBtn.addEventListener("click", () => handleDelete(location.id));
   actionsCell.appendChild(deleteBtn);
 

@@ -132,6 +132,34 @@ table tr:last-child td {
   border-bottom: none;
 }
 
+/* Actions Buttons */
+.edit-btn,
+.delete-btn {
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  background-color: #f4a261; /* Warna tombol Edit */
+}
+
+.edit-btn:hover {
+  background-color: #e76f51; /* Warna saat hover tombol Edit */
+}
+
+.delete-btn {
+  background-color: #e63946; /* Warna tombol Delete */
+}
+
+.delete-btn:hover {
+  background-color: #d62828; /* Warna saat hover tombol Delete */
+}
+
 /* Footer */
 .footer {
   background-color: #2a9d8f; /* Background footer */
