@@ -1,4 +1,3 @@
-// Validasi akses halaman dashboard
 document.addEventListener("DOMContentLoaded", async () => {
   const role = localStorage.getItem("userRole");
   const token = localStorage.getItem("jwtToken");
@@ -11,6 +10,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Load data lokasi saat halaman dimuat
   await loadLocations(token);
+
+  // Logout event listener
+  document.getElementById("logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("userRole");
+    alert("Anda telah logout.");
+    window.location.href = "/login/login.html";
+  });
 });
 
 // Fungsi untuk memuat data lokasi dari backend
