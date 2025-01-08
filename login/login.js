@@ -34,7 +34,14 @@ loginForm.addEventListener("submit", async (event) => {
     if (!response.ok) {
       const errorText = await response.text(); // Dapatkan detail error dari server
       console.error("Error response:", errorText); // Log respons error
-      throw new Error(`Login gagal: ${response.statusText}`);
+
+      // Coba parsing respons error sebagai JSON
+      try {
+        const errorData = JSON.parse(errorText);
+        throw new Error(errorData.message || "Login gagal. Silakan coba lagi.");
+      } catch {
+        throw new Error(errorText || "Login gagal. Silakan coba lagi.");
+      }
     }
 
     const data = await response.json(); // Parsing respons JSON
@@ -57,11 +64,11 @@ loginForm.addEventListener("submit", async (event) => {
 
       // Arahkan pengguna berdasarkan peran
       if (data.user && data.user.role === "admin") {
-        window.location.href =
-          "https://github.com/rrq-dev/Frontend-berkah.github.io/admin/dashboard.html"; // Halaman untuk admin
+        window.location.href = "/admin/dashboard.html"; // Halaman untuk admin
+      } else if (data.user && data.user.role === "user") {
+        window.location.href = "/index.html"; // Halaman untuk pengguna biasa
       } else {
-        window.location.href =
-          "https://github.com/rrq-dev/Frontend-berkah.github.io"; // Halaman untuk pengguna biasa
+        alert("Peran tidak dikenali. Hubungi administrator.");
       }
     } else {
       alert("Login gagal: Tidak ada token yang diterima.");
