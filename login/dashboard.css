@@ -110,13 +110,14 @@ table {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  border: 1px solid #ddd; /* Pembatas tabel */
 }
 
 table th,
 table td {
   text-align: left;
   padding: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; /* Pembatas antar baris */
 }
 
 table th {
@@ -142,6 +143,7 @@ table tr:last-child td {
   cursor: pointer;
   font-size: 0.9rem;
   transition: background-color 0.3s;
+  margin-right: 10px; /* Jarak antar tombol */
 }
 
 .edit-btn {
