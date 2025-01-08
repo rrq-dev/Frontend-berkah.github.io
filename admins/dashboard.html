@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">Dashboard Admin</div>
-    <div>
-      <a href="#">Home</a>
-      <a href="#">Users</a>
-      <a href="#">Settings</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Dashboard Admin</div>
+      <div>
+        <a href="#">Home</a>
+        <a href="#">Users</a>
+        <a href="#">Settings</a>
+      </div>
+      <div class="buttons">
+        <button id="contact-btn">Contact</button>
+        <button id="logout-btn">Logout</button>
+      </div>
     </div>
-    <div class="buttons">
-      <button id="contact-btn">Contact</button>
-      <button id="logout-btn">Logout</button>
+
+    <!-- Main Content -->
+    <div class="container">
+      <h1>Manage Users</h1>
+      <div class="form-group">
+        <input type="text" id="location" placeholder="Enter Location" />
+        <input type="text" id="address" placeholder="Enter Address" />
+        <input type="text" id="desc" placeholder="Enter Description" />
+        <button id="add-user-btn">Add Mosque</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Address</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="user-table">
+          <!-- Dynamic rows will be inserted here -->
+        </tbody>
+      </table>
     </div>
-  </div>
 
-  <!-- Main Content -->
-  <div class="container">
-    <h1>Manage Users</h1>
-    <div class="form-group">
-      <input type="text" id="name" placeholder="Enter Name">
-      <input type="email" id="email" placeholder="Enter Email">
-      <button id="add-user-btn">Add User</button>
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2025 Admin Dashboard | All rights reserved</p>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="user-table">
-        <!-- Dynamic rows will be inserted here -->
-      </tbody>
-    </table>
-  </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <p>© 2025 Admin Dashboard | All rights reserved</p>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

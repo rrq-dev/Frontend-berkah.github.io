@@ -1,31 +1,38 @@
 // Get references to HTML elements
 const addUserBtn = document.getElementById("add-user-btn");
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
+const locationInput = document.getElementById("location");
+const addressInput = document.getElementById("address");
+const descriptionInput = document.getElementById("desc");
 const userTable = document.getElementById("user-table");
 
 // Event listener for adding a user
 addUserBtn.addEventListener("click", function () {
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
+  const location = locationInput.trim();
+  const address = addressInput.value.trim();
+  const desc = descriptionInput.trim();
 
-  if (name === "" || email === "") {
-    alert("Please enter both name and email!");
+  if (location === "" || address === "" || desc === "") {
+    alert("Please enter both name, email, and description!");
     return;
   }
 
   // Create a new row in the table
   const newRow = document.createElement("tr");
 
-  // Name cell
-  const nameCell = document.createElement("td");
-  nameCell.textContent = name;
-  newRow.appendChild(nameCell);
+  // location cell
+  const locationCell = document.createElement("td");
+  locationCell.textContent = location;
+  newRow.appendChild(locationCell);
 
-  // Email cell
-  const emailCell = document.createElement("td");
-  emailCell.textContent = email;
-  newRow.appendChild(emailCell);
+  // address cell
+  const addressCell = document.createElement("td");
+  addressCell.textContent = address;
+  newRow.appendChild(addressCell);
+
+  // desc cell
+  const descCell = document.createElement("td");
+  descCell.textContent = desc;
+  newRow.appendChild(descCell);
 
   // Actions cell
   const actionsCell = document.createElement("td");
@@ -36,8 +43,9 @@ addUserBtn.addEventListener("click", function () {
   editBtn.style.backgroundColor = "#e76f51";
   editBtn.style.color = "white";
   editBtn.addEventListener("click", function () {
-    nameInput.value = nameCell.textContent;
-    emailInput.value = emailCell.textContent;
+    locationInput.value = locationCell.textContent;
+    addressInput.value = addressCell.textContent;
+    descriptionInput.value = descCell.textContent;
     userTable.removeChild(newRow);
   });
   actionsCell.appendChild(editBtn);
@@ -56,6 +64,7 @@ addUserBtn.addEventListener("click", function () {
   userTable.appendChild(newRow);
 
   // Clear input fields
-  nameInput.value = "";
-  emailInput.value = "";
+  locationInput.value = "";
+  addressInput.value = "";
+  descInput.value = "";
 });
