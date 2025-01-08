@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // Load data lokasi saat halaman dimuat
+  // Load data masjid saat halaman dimuat
   await loadLocations(token);
 
   // Logout event listener
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-// Fungsi untuk memuat data lokasi dari backend
+// Fungsi untuk memuat data masjid dari backend
 async function loadLocations(token) {
   try {
     const response = await fetch("http://localhost:8080/datalokasi", {
@@ -32,7 +32,7 @@ async function loadLocations(token) {
     });
 
     if (!response.ok) {
-      throw new Error("Gagal memuat data lokasi.");
+      throw new Error("Gagal memuat data masjid.");
     }
 
     const locations = await response.json();
@@ -41,14 +41,14 @@ async function loadLocations(token) {
     // Hapus konten sebelumnya
     userTable.innerHTML = "";
 
-    // Tambahkan setiap lokasi ke tabel
+    // Tambahkan setiap masjid ke tabel
     locations.forEach((location) => {
       const newRow = createTableRow(location);
       userTable.appendChild(newRow);
     });
   } catch (error) {
     console.error("Error saat memuat data:", error);
-    alert("Terjadi kesalahan saat memuat data lokasi.");
+    alert("Terjadi kesalahan saat memuat data masjid.");
   }
 }
 
@@ -56,10 +56,10 @@ async function loadLocations(token) {
 function createTableRow(location) {
   const newRow = document.createElement("tr");
 
-  // Location cell
-  const locationCell = document.createElement("td");
-  locationCell.textContent = location.location;
-  newRow.appendChild(locationCell);
+  // Name cell
+  const nameCell = document.createElement("td");
+  nameCell.textContent = location.name;
+  newRow.appendChild(nameCell);
 
   // Address cell
   const addressCell = document.createElement("td");
@@ -97,12 +97,12 @@ function createTableRow(location) {
 
 // Tambah data baru
 document.getElementById("add-user-btn").addEventListener("click", async () => {
-  const location = document.getElementById("location").value.trim();
+  const name = document.getElementById("name").value.trim();
   const address = document.getElementById("address").value.trim();
   const desc = document.getElementById("desc").value.trim();
   const token = localStorage.getItem("jwtToken");
 
-  if (!location || !address || !desc) {
+  if (!name || !address || !desc) {
     alert("Semua field harus diisi!");
     return;
   }
@@ -114,31 +114,31 @@ document.getElementById("add-user-btn").addEventListener("click", async () => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ location, address, description: desc }),
+      body: JSON.stringify({ name, address, description: desc }),
     });
 
     if (!response.ok) {
-      throw new Error("Gagal menambahkan lokasi.");
+      throw new Error("Gagal menambahkan masjid.");
     }
 
-    alert("Lokasi berhasil ditambahkan.");
-    document.getElementById("location").value = "";
+    alert("Masjid berhasil ditambahkan.");
+    document.getElementById("name").value = "";
     document.getElementById("address").value = "";
     document.getElementById("desc").value = "";
 
     // Muat ulang data setelah penambahan
     await loadLocations(token);
   } catch (error) {
-    console.error("Error saat menambahkan lokasi:", error);
-    alert("Terjadi kesalahan saat menambahkan lokasi.");
+    console.error("Error saat menambahkan masjid:", error);
+    alert("Terjadi kesalahan saat menambahkan masjid.");
   }
 });
 
-// Fungsi untuk menghapus lokasi
+// Fungsi untuk menghapus masjid
 async function handleDelete(id) {
   const token = localStorage.getItem("jwtToken");
 
-  if (!confirm("Apakah Anda yakin ingin menghapus lokasi ini?")) {
+  if (!confirm("Apakah Anda yakin ingin menghapus masjid ini?")) {
     return;
   }
 
@@ -152,25 +152,25 @@ async function handleDelete(id) {
     });
 
     if (!response.ok) {
-      throw new Error("Gagal menghapus lokasi.");
+      throw new Error("Gagal menghapus masjid.");
     }
 
-    alert("Lokasi berhasil dihapus.");
+    alert("Masjid berhasil dihapus.");
     // Muat ulang data setelah penghapusan
     await loadLocations(token);
   } catch (error) {
-    console.error("Error saat menghapus lokasi:", error);
-    alert("Terjadi kesalahan saat menghapus lokasi.");
+    console.error("Error saat menghapus masjid:", error);
+    alert("Terjadi kesalahan saat menghapus masjid.");
   }
 }
 
-// Fungsi untuk mengedit lokasi
+// Fungsi untuk mengedit masjid
 function handleEdit(location) {
-  const locationInput = document.getElementById("location");
+  const nameInput = document.getElementById("name");
   const addressInput = document.getElementById("address");
   const descInput = document.getElementById("desc");
 
-  locationInput.value = location.location;
+  nameInput.value = location.name;
   addressInput.value = location.address;
   descInput.value = location.description;
 
@@ -183,12 +183,12 @@ function handleEdit(location) {
   addUserBtn.parentNode.replaceChild(newBtn, addUserBtn);
 
   newBtn.addEventListener("click", async function saveChanges() {
-    const updatedLocation = locationInput.value.trim();
+    const updatedName = nameInput.value.trim();
     const updatedAddress = addressInput.value.trim();
     const updatedDesc = descInput.value.trim();
     const token = localStorage.getItem("jwtToken");
 
-    if (!updatedLocation || !updatedAddress || !updatedDesc) {
+    if (!updatedName || !updatedAddress || !updatedDesc) {
       alert("Semua field harus diisi!");
       return;
     }
@@ -202,25 +202,25 @@ function handleEdit(location) {
         },
         body: JSON.stringify({
           id: location.id,
-          location: updatedLocation,
+          name: updatedName,
           address: updatedAddress,
           description: updatedDesc,
         }),
       });
 
       if (!response.ok) {
-        throw new Error("Gagal memperbarui lokasi.");
+        throw new Error("Gagal memperbarui masjid.");
       }
 
-      alert("Lokasi berhasil diperbarui.");
-      locationInput.value = "";
+      alert("Masjid berhasil diperbarui.");
+      nameInput.value = "";
       addressInput.value = "";
       descInput.value = "";
       newBtn.textContent = "Add Mosque";
       await loadLocations(token);
     } catch (error) {
-      console.error("Error saat memperbarui lokasi:", error);
-      alert("Terjadi kesalahan saat memperbarui lokasi.");
+      console.error("Error saat memperbarui masjid:", error);
+      alert("Terjadi kesalahan saat memperbarui masjid.");
     }
   });
 }
