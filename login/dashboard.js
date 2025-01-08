@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (!token || role !== "admin") {
     alert("Anda tidak memiliki akses ke halaman ini.");
-    window.location.href = "/login/login.html";
+    window.location.href = "https://rrq-dev/Frontend-berkah.github.io";
     return;
   }
 

@@ -50,8 +50,7 @@ registerForm.addEventListener("submit", async (event) => {
 
     // Tampilkan pesan sukses dan redirect
     alert("Registration successful! Welcome, " + data.user.username);
-    window.location.href =
-      "https://github.com/rrq-dev/Frontend-berkah.github.io"; // Redirect ke halaman utama
+    window.location.href = "https://rrq-dev/Frontend-berkah.github.io"; // Redirect ke halaman utama
   } catch (error) {
     // Tampilkan pesan error
     console.error("There was a problem with the registration process:", error);

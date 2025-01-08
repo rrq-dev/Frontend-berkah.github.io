@@ -15,20 +15,20 @@ if (contactButton) {
   });
 }
 
-// Function to check if the user is registered
-function checkUserRegistration() {
-  // Cek status registrasi dari localStorage (atau sessionStorage jika diperlukan)
-  const isRegistered = localStorage.getItem("isRegistered");
+// // Function to check if the user is registered
+// function checkUserRegistration() {
+//   // Cek status registrasi dari localStorage (atau sessionStorage jika diperlukan)
+//   const isRegistered = localStorage.getItem("isRegistered");
 
-  // Jika belum terdaftar, arahkan ke halaman register
-  if (!isRegistered) {
-    alert("Silakan daftar terlebih dahulu sebelum mengakses website.");
-    window.location.href =
-      "https://rrq-dev.github.io/Frontend-berkah.github.io/register/register.html"; // Ganti dengan path halaman register Anda
-  }
-}
+//   // Jika belum terdaftar, arahkan ke halaman register
+//   if (!isRegistered) {
+//     alert("Silakan daftar terlebih dahulu sebelum mengakses website.");
+//     window.location.href =
+//       "https://rrq-dev.github.io/Frontend-berkah.github.io/register/register.html"; // Ganti dengan path halaman register Anda
+//   }
+// }
 
-// Jalankan fungsi saat halaman dimuat
-window.onload = function () {
-  checkUserRegistration();
-};
+// // Jalankan fungsi saat halaman dimuat
+// window.onload = function () {
+//   checkUserRegistration();
+// };
