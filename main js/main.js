@@ -7,14 +7,6 @@ if (signUpButton) {
   });
 }
 
-// Tombol Contact
-const contactButton = document.querySelector(".contact");
-if (contactButton) {
-  contactButton.addEventListener("click", () => {
-    window.location.href = "contact.html"; // Navigasi ke halaman contact.html (opsional)
-  });
-}
-
 // // Function to check if the user is registered
 // function checkUserRegistration() {
 //   // Cek status registrasi dari localStorage (atau sessionStorage jika diperlukan)
