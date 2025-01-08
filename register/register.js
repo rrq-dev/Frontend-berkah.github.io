@@ -1,39 +1,61 @@
 const registerForm = document.getElementById("register-form");
 
-registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const username = document.getElementById("username").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  // Ambil data dari form
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const confirmPassword = document
+    .getElementById("confirm-password")
+    .value.trim();
 
-  // Validasi input (misalnya, cek apakah password dan confirm password cocok)
-  const confirmPassword = document.getElementById("confirm-password").value;
+  // Validasi input
+  if (!username || !email || !password || !confirmPassword) {
+    alert("All fields are required!");
+    return;
+  }
+
   if (password !== confirmPassword) {
     alert("Password and Confirm Password do not match!");
     return;
   }
 
-  fetch("http://localhost:8080/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, email, password }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Registration failed");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      alert("Registration successful! Welcome, " + data.user.username);
-      // Redirect ke halaman utama
-      window.location.href = "index.html"; // Redirect ke home page setelah sukses
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-      alert("Registration failed: " + error.message);
+  // Tampilkan pesan loading
+  const submitButton = document.querySelector("button[type='submit']");
+  submitButton.disabled = true;
+  submitButton.textContent = "Registering...";
+
+  try {
+    // Kirim request ke backend
+    const response = await fetch("http://localhost:8080/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, email, password }),
     });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        errorData.message || "Registration failed. Please try again."
+      );
+    }
+
+    const data = await response.json();
+
+    // Tampilkan pesan sukses dan redirect
+    alert("Registration successful! Welcome, " + data.user.username);
+    window.location.href = "index.html"; // Redirect ke halaman utama
+  } catch (error) {
+    // Tampilkan pesan error
+    console.error("There was a problem with the fetch operation:", error);
+    alert("Registration failed: " + error.message);
+  } finally {
+    // Kembalikan tombol ke keadaan semula
+    submitButton.disabled = false;
+    submitButton.textContent = "Sign Up";
+  }
 });
