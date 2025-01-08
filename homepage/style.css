@@ -1,0 +1,160 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  header {
+    background: #0077b6;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header nav {
+    margin-top: 10px;
+  }
+  
+  header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  header nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main Content */
+  main {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  main h2 {
+    color: #0077b6;
+  }
+  
+  /* Footer Styles */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0077b6;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Form Styles */
+  form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  form button {
+    background: #0077b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background: #005f86;
+  }
+  
+  /* Map Styles */
+  #map {
+    height: 300px;
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  
+  
+  body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+}  
+
+header {  
+    background-color: #4CAF50;  
+    color: white;  
+    padding: 20px;  
+    text-align: center;  
+}  
+
+nav {  
+    margin: 20px 0;  
+}  
+
+nav a {  
+    margin: 0 15px;  
+    text-decoration: none;  
+    color: white;  
+}  
+
+nav a:hover {  
+    text-decoration: underline;  
+}  
+
+footer {  
+    text-align: center;  
+    padding: 10px;  
+    background-color: #f1f1f1;  
+}  
+
+#map {  
+    height: 400px;  
+    width: 100%;  
+}  
+
+#info {
+  width: 100%;
+}
+
+#info h2 {
+  text-align: center;
+}
+
+#masjid-list {
+  list-style: none;
+  padding: 0;
+}
+
+#masjid-list li {
+  background: #f9f9f9;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+}
+
