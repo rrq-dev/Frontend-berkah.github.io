@@ -57,9 +57,11 @@ loginForm.addEventListener("submit", async (event) => {
 
       // Arahkan pengguna berdasarkan peran
       if (data.user && data.user.role === "admin") {
-        window.location.href = "admin/dashboard.html"; // Halaman untuk admin
+        window.location.href =
+          "https://github.com/rrq-dev/Frontend-berkah.github.io/admin/dashboard.html"; // Halaman untuk admin
       } else {
-        window.location.href = "index.html"; // Halaman untuk pengguna biasa
+        window.location.href =
+          "https://github.com/rrq-dev/Frontend-berkah.github.io"; // Halaman untuk pengguna biasa
       }
     } else {
       alert("Login gagal: Tidak ada token yang diterima.");

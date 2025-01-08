@@ -37,8 +37,10 @@ registerForm.addEventListener("submit", async (event) => {
       body: JSON.stringify({ username, email, password }),
     });
 
+    // Periksa status respons
     if (!response.ok) {
       const errorData = await response.json();
+      console.error("Error response:", errorData); // Log detail error dari server
       throw new Error(
         errorData.message || "Registration failed. Please try again."
       );
@@ -48,10 +50,11 @@ registerForm.addEventListener("submit", async (event) => {
 
     // Tampilkan pesan sukses dan redirect
     alert("Registration successful! Welcome, " + data.user.username);
-    window.location.href = "index.html"; // Redirect ke halaman utama
+    window.location.href =
+      "https://github.com/rrq-dev/Frontend-berkah.github.io"; // Redirect ke halaman utama
   } catch (error) {
     // Tampilkan pesan error
-    console.error("There was a problem with the fetch operation:", error);
+    console.error("There was a problem with the registration process:", error);
     alert("Registration failed: " + error.message);
   } finally {
     // Kembalikan tombol ke keadaan semula
