@@ -167,11 +167,15 @@ function handleEdit(location) {
   addressInput.value = location.address;
   descInput.value = location.description;
 
-  // Tambahkan tombol Save
+  // Ganti teks tombol Add Mosque menjadi Save Changes
   const addUserBtn = document.getElementById("add-user-btn");
   addUserBtn.textContent = "Save Changes";
 
-  addUserBtn.addEventListener("click", async function saveChanges() {
+  // Hapus semua event listener sebelumnya
+  const newBtn = addUserBtn.cloneNode(true);
+  addUserBtn.parentNode.replaceChild(newBtn, addUserBtn);
+
+  newBtn.addEventListener("click", async function saveChanges() {
     const updatedLocation = locationInput.value.trim();
     const updatedAddress = addressInput.value.trim();
     const updatedDesc = descInput.value.trim();
@@ -205,8 +209,7 @@ function handleEdit(location) {
       locationInput.value = "";
       addressInput.value = "";
       descInput.value = "";
-      addUserBtn.textContent = "Add Mosque";
-      addUserBtn.removeEventListener("click", saveChanges);
+      newBtn.textContent = "Add Mosque";
       await loadLocations(token);
     } catch (error) {
       console.error("Error saat memperbarui lokasi:", error);
