@@ -34,7 +34,7 @@ registerForm.addEventListener("submit", async (event) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ username, email, password, confirmPassword }),
     });
 
     if (!response.ok) {
