@@ -1,60 +1,39 @@
-// Base URL API Backend
-const API_BASE_URL = "http://127.0.0.1:8080"; // Ganti dengan URL backend Anda
+const registerForm = document.getElementById("register-form");
 
-// Event Listener untuk Register Form
-const registerForm = document.getElementById("registerForm");
-if (registerForm) {
-  registerForm.addEventListener("submit", async (event) => {
-    event.preventDefault(); // Mencegah form refresh halaman
+registerForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    // Ambil nilai input
-    const email = registerForm.querySelector('input[type="email"]').value;
-    const username = registerForm.querySelector('input[type="text"]').value;
-    const password = registerForm.querySelector('input[name="password"]').value;
-    const confirmPassword = registerForm.querySelector(
-      'input[name="confirm_password"]'
-    ).value;
-    const role = registerForm.querySelector("select").value;
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    // Validasi sederhana
-    if (!email || !username || !password || !confirmPassword || !role) {
-      alert("Please fill in all fields!");
-      return;
-    }
+  // Validasi input (misalnya, cek apakah password dan confirm password cocok)
+  const confirmPassword = document.getElementById("confirm-password").value;
+  if (password !== confirmPassword) {
+    alert("Password and Confirm Password do not match!");
+    return;
+  }
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    try {
-      // Kirim data ke backend
-      const response = await fetch(`${API_BASE_URL}/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          username,
-          password,
-          role,
-        }),
-      });
-
-      // Cek respons dari backend
-      const data = await response.json();
-      if (response.ok) {
-        console.log("Registration Successful!", data);
-        alert("Registration Successful!");
-        // Redirect ke halaman login jika diperlukan
-      } else {
-        console.error("Registration Failed:", data);
-        alert(data.message || "Registration Failed!");
+  fetch("http://localhost:8080/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, email, password }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Registration failed");
       }
-    } catch (error) {
-      console.error("Error during registration:", error);
-      alert("Something went wrong. Please try again!");
-    }
-  });
-}
+      return response.json();
+    })
+    .then((data) => {
+      alert("Registration successful! Welcome, " + data.user.username);
+      // Redirect ke halaman utama
+      window.location.href = "index.html"; // Redirect ke home page setelah sukses
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      alert("Registration failed: " + error.message);
+    });
+});

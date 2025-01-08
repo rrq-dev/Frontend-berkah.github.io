@@ -57,6 +57,8 @@ select {
   margin-bottom: 15px;
   outline: none;
   transition: border 0.3s ease;
+  appearance: none; /* Hapus gaya default pada select */
+  background-color: #fff;
 }
 
 input[type="email"]:focus,
@@ -65,6 +67,18 @@ input[type="password"]:focus,
 select:focus {
   border: 1px solid #2a9d8f; /* Fokus dengan warna hijau */
   box-shadow: 0 0 4px rgba(42, 157, 143, 0.5);
+}
+
+/* Dropdown Select Styling */
+select {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5" fill="%232A9D8F"><path d="M2 0L0 2h4L2 0z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px 12px;
+}
+
+select::-ms-expand {
+  display: none; /* Hilangkan dropdown icon default di IE */
 }
 
 /* Buttons */

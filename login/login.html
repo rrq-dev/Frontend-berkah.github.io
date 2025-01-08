@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="login.css" />
-    <script src="login.js"></script>
+    <script src="login.js" defer></script>
+    <!-- Tambahkan defer untuk memuat JS setelah DOM selesai -->
   </head>
   <body>
-    <form id="loginForm">
+    <form id="login-form">
+      <!-- Perbaikan ID sesuai dengan yang di-referensikan di JavaScript -->
       <h1>Login</h1>
-      <input type="email" placeholder="Email Address" required />
-      <input type="password" placeholder="Password" required />
+      <input id="email" type="email" placeholder="Email Address" required />
+      <input id="password" type="password" placeholder="Password" required />
+
       <a href="#">Forgot password?</a>
       <button type="submit">Login</button>
       <p>
-        don't have an account?
+        Don't have an account?
         <a
           href="https://rrq-dev.github.io/Frontend-berkah.github.io/register/register.html"
           >Sign up</a
