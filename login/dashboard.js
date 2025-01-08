@@ -35,7 +35,14 @@ async function loadLocations(token) {
       throw new Error("Gagal memuat data masjid.");
     }
 
-    const locations = await response.json();
+    const result = await response.json(); // Parsing JSON dari respons API
+
+    if (result.status !== "success") {
+      throw new Error(result.message || "Terjadi kesalahan pada API.");
+    }
+
+    const locations = result.data; // Ambil array data dari properti `data`
+
     const userTable = document.getElementById("user-table");
 
     // Hapus konten sebelumnya
@@ -94,45 +101,6 @@ function createTableRow(location) {
 
   return newRow;
 }
-
-// Tambah data baru
-document.getElementById("add-user-btn").addEventListener("click", async () => {
-  const name = document.getElementById("name").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const desc = document.getElementById("desc").value.trim();
-  const token = localStorage.getItem("jwtToken");
-
-  if (!name || !address || !desc) {
-    alert("Semua field harus diisi!");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:8080/create/data", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, address, description: desc }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Gagal menambahkan masjid.");
-    }
-
-    alert("Masjid berhasil ditambahkan.");
-    document.getElementById("name").value = "";
-    document.getElementById("address").value = "";
-    document.getElementById("desc").value = "";
-
-    // Muat ulang data setelah penambahan
-    await loadLocations(token);
-  } catch (error) {
-    console.error("Error saat menambahkan masjid:", error);
-    alert("Terjadi kesalahan saat menambahkan masjid.");
-  }
-});
 
 // Fungsi untuk menghapus masjid
 async function handleDelete(id) {
