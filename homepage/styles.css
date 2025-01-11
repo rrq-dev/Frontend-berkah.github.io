@@ -1,0 +1,172 @@
+body {        
+    margin: 0;        
+    font-family: Arial, sans-serif;        
+    background-color: #f4f4f4; /* Warna latar belakang halaman */  
+}        
+  
+.navbar {        
+    display: flex;        
+    flex-direction: column; /* Mengatur navbar menjadi vertikal */        
+    background-color: #f8b400; /* Warna latar belakang navbar */        
+    padding: 10px 20px;        
+}        
+  
+.logo img {        
+    height: 40px; /* Sesuaikan tinggi logo */        
+}        
+  
+.nav-links {        
+    list-style: none;        
+    display: flex;        
+    justify-content: center; /* Memusatkan tautan di navbar */        
+    margin: 0;        
+    padding: 0;        
+}        
+  
+.nav-links li {        
+    margin:  15px;        
+}        
+  
+.nav-links a {        
+    text-decoration: none;        
+    color: black; /* Warna teks */        
+    font-weight: bold;        
+}        
+  
+#feedback {    
+    padding: 20px;    
+    max-width: 600px; /* Lebar maksimum form */    
+    margin: 20px auto; /* Memusatkan form */    
+    border: 1px solid #ccc; /* Garis batas */    
+    border-radius: 8px; /* Sudut melengkung */    
+    background-color: #f9f9f9; /* Warna latar belakang form */    
+}    
+  
+#feedback h2 {    
+    text-align: center; /* Memusatkan judul */    
+}    
+  
+#feedbackForm {    
+    display: flex;    
+    flex-direction: column; /* Mengatur form menjadi kolom */    
+}    
+  
+#feedbackForm label {    
+    margin: 10px 0 5px; /* Jarak antar label dan input */    
+    font-weight: bold; /* Menebalkan teks label */    
+}    
+  
+#feedbackForm input,     
+#feedbackForm textarea {    
+    padding: 12px; /* Padding untuk input dan textarea */    
+    border: 1px solid #ccc; /* Garis batas */    
+    border-radius: 4px; /* Sudut melengkung */    
+    font-size: 1em; /* Ukuran font */    
+    transition: border-color 0.3s; /* Transisi untuk efek hover */    
+}    
+  
+#feedbackForm input:focus,     
+#feedbackForm textarea:focus {    
+    border-color: #007BFF; /* Warna batas saat fokus */    
+    outline: none; /* Menghilangkan outline default */    
+}    
+  
+#feedbackForm input::placeholder,     
+#feedbackForm textarea::placeholder {    
+    color: #aaa; /* Warna placeholder */    
+}    
+  
+.button-container {    
+    display: flex;      
+    justify-content: center; /* Memusatkan tombol */    
+    margin-top: 15px; /* Jarak atas untuk tombol */    
+}    
+  
+button {      
+    padding: 10px 20px;      
+    background-color: #f8b400;      
+    border: none;      
+    color: white;      
+    cursor: pointer;      
+    margin: 0 5px; /* Jarak antar tombol */      
+    border-radius: 4px; /* Sudut melengkung tombol */    
+    font-size: 1em; /* Ukuran font tombol */    
+}      
+  
+button:hover {      
+    background-color: #e0a300;      
+}      
+  
+#location {    
+    padding: 20px;    
+    max-width: 800px; /* Lebar maksimum section */    
+    margin: 20px auto; /* Memusatkan section */    
+    background-color: white; /* Warna latar belakang section */    
+    border-radius: 8px; /* Sudut melengkung */    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */    
+}    
+  
+#location h2 {    
+    text-align: center; /* Memusatkan judul */    
+    color: #333; /* Warna teks judul */    
+}    
+  
+.map-container {    
+    margin: 20px 0; /* Jarak atas dan bawah untuk peta */    
+}    
+  
+.mosque-list {    
+    list-style: none;    
+    padding: 0;    
+}    
+  
+.mosque-list li {    
+    padding: 10px;    
+    border-bottom: 1px solid #ccc; /* Garis batas bawah untuk setiap item */    
+    color: #555; /* Warna teks untuk daftar masjid */    
+}    
+  
+footer {    
+    text-align: center;    
+    padding: 20px;    
+    background-color: #007BFF;    
+    color: white;    
+}    
+
+html, body {  
+    height: 100%; /* Mengatur tinggi html dan body */  
+    margin: 0; /* Menghilangkan margin default */  
+}  
+  
+ 
+
+#contact {        
+    padding: 20px;        
+    max-width: 600px; /* Lebar maksimum section */        
+    margin: 20px auto; /* Memusatkan section */        
+    background-color: white; /* Warna latar belakang section */        
+    border-radius: 8px; /* Sudut melengkung */        
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */        
+}        
+  
+#contact h2 {        
+    text-align: center; /* Memusatkan judul */        
+    color: #333; /* Warna teks judul */        
+}        
+  
+.contact-info {        
+    margin-top: 20px; /* Jarak atas untuk informasi kontak */        
+    font-size: 1.1em; /* Ukuran font untuk informasi kontak */        
+    color: #555; /* Warna teks untuk informasi kontak */        
+}        
+  
+.contact-info a {        
+    color: #007BFF; /* Warna tautan */        
+    text-decoration: none; /* Menghilangkan garis bawah pada tautan */        
+}        
+  
+.contact-info a:hover {        
+    text-decoration: underline; /* Garis bawah saat hover */        
+}        
+  
+ 
