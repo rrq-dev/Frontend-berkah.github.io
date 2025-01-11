@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("userRole");
     alert("Anda telah logout.");
-    window.location.href = "/login/login.html";
+    window.location.href = "https://rrq-dev/Frontend-berkah.github.io";
   });
 });
 
@@ -32,6 +32,8 @@ async function loadLocations(token) {
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Response Error:", errorText);
       throw new Error("Gagal memuat data masjid.");
     }
 
@@ -109,6 +111,8 @@ async function handleDelete(id) {
   }
 
   try {
+    console.log(`Menghapus masjid dengan ID: ${id}`); // Logging untuk debug
+
     const response = await fetch(`http://localhost:8080/delete/data?id=${id}`, {
       method: "DELETE",
       headers: {
@@ -118,6 +122,8 @@ async function handleDelete(id) {
     });
 
     if (!response.ok) {
+      const errorText = await response.text(); // Ambil pesan error dari respons
+      console.error("Response Error:", errorText);
       throw new Error("Gagal menghapus masjid.");
     }
 
@@ -150,7 +156,7 @@ function handleEdit(location) {
 
   newBtn.addEventListener("click", async function saveChanges() {
     const updatedName = nameInput.value.trim();
-    const updatedAddress = addressInput.value.trim();
+    const updatedAddress = nameInput.value.trim();
     const updatedDesc = descInput.value.trim();
     const token = localStorage.getItem("jwtToken");
 
@@ -175,6 +181,8 @@ function handleEdit(location) {
       });
 
       if (!response.ok) {
+        const errorText = await response.text(); // Ambil pesan error dari respons
+        console.error("Response Error:", errorText);
         throw new Error("Gagal memperbarui masjid.");
       }
 

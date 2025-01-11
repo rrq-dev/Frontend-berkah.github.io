@@ -79,6 +79,13 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background: url("path-to-lunchbox-icon.png") 10% 20% repeat,
+    /* Lunchbox motif */ url("path-to-location-icon.png") 90% 80% repeat,
+    /* Location motif */ #f4a261; /* Oranye */
+  background-size: 150px, 150px; /* Ukuran motif */
+  padding: 40px;
+  border-radius: 12px; /* Sudut melengkung */
+  margin: 16px;
 }
 
 .hero-content {
@@ -87,6 +94,13 @@ body {
 
 .hero-content h1 {
   font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ffffff; /* Warna putih untuk teks utama */
+}
+
+h2 {
+  font-size: 1.9rem;
   font-weight: 700;
   margin-bottom: 16px;
   color: #ffffff; /* Warna putih untuk teks utama */
