@@ -7,10 +7,12 @@ body {
 .navbar {        
     display: flex;        
     flex-direction: column; /* Mengatur navbar menjadi vertikal */        
-    background-color: #f8b400; /* Warna latar belakang navbar */        
-    padding: 10px 20px;        
+    background-color: #2a9d8f; /* Warna latar belakang navbar */        
+    padding: 10px 20px; 
+           
 }        
   
+
 .logo img {        
     height: 40px; /* Sesuaikan tinggi logo */        
 }        
@@ -84,7 +86,7 @@ body {
   
 button {      
     padding: 10px 20px;      
-    background-color: #f8b400;      
+    background-color: #f4a261;      
     border: none;      
     color: white;      
     cursor: pointer;      
@@ -94,7 +96,7 @@ button {
 }      
   
 button:hover {      
-    background-color: #e0a300;      
+    background-color: #f4a261;      
 }      
   
 #location {    
@@ -169,4 +171,10 @@ html, body {
     text-decoration: underline; /* Garis bawah saat hover */        
 }        
   
+body {
+    font-family: Arial, sans-serif;
+    background: #f4a261; /* Background oranye */
+    color: #1a202c;
+    line-height: 1.5;
+  }
  
