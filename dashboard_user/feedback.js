@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Function to load feedback from the backend
 async function loadFeedback(token) {
   try {
-    const response = await fetch("http://localhost:8080/datalokasi/feedback", {
+    const response = await fetch("http://localhost:8080/datalokasi/user", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
