@@ -12,9 +12,13 @@
       <div class="logo">Logo</div>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Feedback</a></li>
+          <li>
+            <a href="https://rrq-dev.github.io/Frontend-berkah.github.io"
+              >Home</a
+            >
+          </li>
           <li><a href="#">Location</a></li>
+          <li><a href="#">Contact</a></li>
           <li><button id="logout-btn">Logout</button></li>
         </ul>
       </nav>
@@ -25,22 +29,13 @@
       <div class="form-container">
         <h2>Add Feedback</h2>
         <form id="feedbackForm">
-          <input
-            type="number"
-            id="location_id"
-            placeholder="Location ID"
+          <input type="text" id="name" placeholder="Name" required />
+          <input type="text" id="address" placeholder="Address" required />
+          <textarea
+            id="description"
+            placeholder="Description"
             required
-          />
-          <input type="number" id="user_id" placeholder="User ID" required />
-          <input
-            type="number"
-            id="rating"
-            placeholder="Rating (1-5)"
-            min="1"
-            max="5"
-            required
-          />
-          <textarea id="comment" placeholder="Comment" required></textarea>
+          ></textarea>
           <button type="submit" id="add-feedback-btn">Add Feedback</button>
         </form>
       </div>

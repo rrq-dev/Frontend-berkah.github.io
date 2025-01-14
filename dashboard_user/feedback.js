@@ -66,21 +66,17 @@ function createFeedbackCard(feedback) {
   id.textContent = `ID: ${feedback.id || "N/A"}`;
   card.appendChild(id);
 
-  const locationId = document.createElement("p");
-  locationId.textContent = `Location ID: ${feedback.location_id || "N/A"}`;
-  card.appendChild(locationId);
+  const name = document.createElement("p");
+  name.textContent = `Name: ${feedback.name || "N/A"}`; // Accessing name
+  card.appendChild(name);
 
-  const userId = document.createElement("p");
-  userId.textContent = `User ID: ${feedback.user_id || "N/A"}`;
-  card.appendChild(userId);
+  const address = document.createElement("p");
+  address.textContent = `Address: ${feedback.address || "N/A"}`; // Accessing address
+  card.appendChild(address);
 
-  const rating = document.createElement("p");
-  rating.textContent = `Rating: ${feedback.rating || "N/A"}`;
-  card.appendChild(rating);
-
-  const comment = document.createElement("p");
-  comment.textContent = `Comment: ${feedback.comment || "N/A"}`;
-  card.appendChild(comment);
+  const description = document.createElement("p");
+  description.textContent = `Description: ${feedback.description || "N/A"}`; // Accessing description
+  card.appendChild(description);
 
   // Actions
   const actionsDiv = document.createElement("div");
@@ -112,22 +108,17 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    // Capture values and convert to numbers where necessary
-    const locationId = parseInt(
-      document.getElementById("location_id").value,
-      10
-    );
-    const userId = parseInt(document.getElementById("user_id").value, 10);
-    const rating = parseInt(document.getElementById("rating").value, 10);
-    const comment = document.getElementById("comment").value;
+    // Capture values
+    const name = document.getElementById("name").value; // Assuming you have a name field
+    const address = document.getElementById("address").value; // Assuming you have an address field
+    const description = document.getElementById("description").value; // Assuming you have a description field
 
     const token = localStorage.getItem("jwtToken");
 
     const feedbackData = {
-      location_id: locationId,
-      user_id: userId,
-      rating: rating,
-      comment: comment,
+      name: name,
+      address: address,
+      description: description,
     };
 
     try {
@@ -192,16 +183,14 @@ async function handleDelete(id) {
 
 // Function to edit feedback
 function handleEdit(feedback) {
-  const locationIdInput = document.getElementById("location_id");
-  const userIdInput = document.getElementById("user_id");
-  const ratingInput = document.getElementById("rating");
-  const commentInput = document.getElementById("comment");
+  const nameInput = document.getElementById("name");
+  const addressInput = document.getElementById("address");
+  const descriptionInput = document.getElementById("description");
 
   // Set values for editing
-  locationIdInput.value = feedback.location_id || ""; // Ensure it's not undefined
-  userIdInput.value = feedback.user_id || ""; // Ensure it's not undefined
-  ratingInput.value = feedback.rating || ""; // Ensure it's not undefined
-  commentInput.value = feedback.comment || ""; // Ensure it's not undefined
+  nameInput.value = feedback.name || ""; // Ensure it's not undefined
+  addressInput.value = feedback.address || ""; // Ensure it's not undefined
+  descriptionInput.value = feedback.description || ""; // Ensure it's not undefined
 
   // Change button text to Save Changes
   const addFeedbackBtn = document.getElementById("add-feedback-btn");
@@ -212,18 +201,12 @@ function handleEdit(feedback) {
   addFeedbackBtn.parentNode.replaceChild(newBtn, addFeedbackBtn);
 
   newBtn.addEventListener("click", async function saveChanges() {
-    const updatedLocationId = parseInt(locationIdInput.value.trim(), 10);
-    const updatedUserId = parseInt(userIdInput.value.trim(), 10);
-    const updatedRating = parseInt(ratingInput.value.trim(), 10);
-    const updatedComment = commentInput.value.trim();
+    const updatedName = nameInput.value.trim();
+    const updatedAddress = addressInput.value.trim();
+    const updatedDescription = descriptionInput.value.trim();
     const token = localStorage.getItem("jwtToken");
 
-    if (
-      !updatedLocationId ||
-      !updatedUserId ||
-      !updatedRating ||
-      !updatedComment
-    ) {
+    if (!updatedName || !updatedAddress || !updatedDescription) {
       alert("Semua field harus diisi!");
       return;
     }
@@ -237,10 +220,9 @@ function handleEdit(feedback) {
         },
         body: JSON.stringify({
           id: feedback.id,
-          location_id: updatedLocationId,
-          user_id: updatedUserId,
-          rating: updatedRating,
-          comment: updatedComment,
+          name: updatedName,
+          address: updatedAddress,
+          description: updatedDescription,
         }),
       });
 
@@ -251,10 +233,9 @@ function handleEdit(feedback) {
       }
 
       alert("Feedback berhasil diperbarui.");
-      locationIdInput.value = "";
-      userIdInput.value = "";
-      ratingInput.value = "";
-      commentInput.value = "";
+      nameInput.value = "";
+      addressInput.value = "";
+      descriptionInput.value = "";
       newBtn.textContent = "Add Feedback";
       await loadFeedback(token);
     } catch (error) {
