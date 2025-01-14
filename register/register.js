@@ -10,7 +10,7 @@ registerForm.addEventListener("submit", async (event) => {
   const confirmPassword = document
     .getElementById("confirm-password")
     .value.trim();
-  //pp
+
   // Debugging: Check values
   console.log("Username:", username);
   console.log("Email:", email);
@@ -41,7 +41,12 @@ registerForm.addEventListener("submit", async (event) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+        confirm_password: confirmPassword,
+      }), // Ensure the field name matches
     });
 
     // Periksa status respons
