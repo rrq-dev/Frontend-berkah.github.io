@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("userRole");
     alert("Anda telah logout.");
-    window.location.href = "https://rrq-dev/Frontend-berkah.github.io";
+    window.location.href =
+      "https://rrq-dev.github.io/Frontend-berkah.github.io";
   });
 });
 

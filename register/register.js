@@ -11,12 +11,19 @@ registerForm.addEventListener("submit", async (event) => {
     .getElementById("confirm-password")
     .value.trim();
 
+  // Debugging: Check values
+  console.log("Username:", username);
+  console.log("Email:", email);
+  console.log("Password:", password);
+  console.log("Confirm Password:", confirmPassword);
+
   // Validasi input
   if (!username || !email || !password || !confirmPassword) {
     alert("All fields are required!");
     return;
   }
 
+  // Check if passwords match
   if (password !== confirmPassword) {
     alert("Password and Confirm Password do not match!");
     return;
@@ -50,7 +57,8 @@ registerForm.addEventListener("submit", async (event) => {
 
     // Tampilkan pesan sukses dan redirect
     alert("Registration successful! Welcome, " + data.user.username);
-    window.location.href = "https://rrq-dev/Frontend-berkah.github.io"; // Redirect ke halaman utama
+    window.location.href =
+      "https://rrq-dev.github.io/Frontend-berkah.github.io"; // Redirect ke halaman utama
   } catch (error) {
     // Tampilkan pesan error
     console.error("There was a problem with the registration process:", error);
