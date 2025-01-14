@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mosque Feedback Dashboard</title>
+    <title>Feedback Management</title>
     <link rel="stylesheet" href="feedback.css" />
     <!-- Link to your CSS file -->
   </head>
@@ -12,30 +12,48 @@
       <div class="logo">Logo</div>
       <nav>
         <ul>
-          <li>
-            <a href="https://rrq-dev.github.io/Frontend-berkah.github.io"
-              >Home</a
-            >
-          </li>
+          <li><a href="#">Home</a></li>
           <li><a href="#">Location</a></li>
-          <li><a href="#">Contact</a></li>
           <li><button id="logout-btn">Logout</button></li>
         </ul>
       </nav>
     </header>
 
     <div class="container">
-      <h1>Find Mosques Around You!</h1>
+      <h1>Feedback Management</h1>
       <div class="form-container">
         <h2>Add Feedback</h2>
         <form id="feedbackForm">
-          <input type="text" id="name" placeholder="Name" required />
-          <input type="text" id="address" placeholder="Address" required />
-          <textarea
-            id="description"
-            placeholder="Description"
+          <input type="hidden" id="feedbackId" value="0" />
+          <!-- Hidden field for feedback ID -->
+          <input type="text" id="userId" placeholder="User ID" required />
+          <input
+            type="text"
+            id="name"
+            placeholder="Name of the Location"
             required
-          ></textarea>
+          />
+          <input
+            type="text"
+            id="address"
+            placeholder="Address of the Location"
+            required
+          />
+          <input
+            type="text"
+            id="description"
+            placeholder="Description of the Location"
+            required
+          />
+          <input
+            type="number"
+            id="rating"
+            placeholder="Rating (1-5)"
+            min="1"
+            max="5"
+            required
+          />
+          <textarea id="comment" placeholder="Optional Comment"></textarea>
           <button type="submit" id="add-feedback-btn">Add Feedback</button>
         </form>
       </div>
