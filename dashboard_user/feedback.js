@@ -57,27 +57,29 @@ async function loadFeedback(token) {
 
 // Function to create a feedback card
 function createFeedbackCard(feedback) {
+  console.log(feedback); // Log the feedback object for debugging
+
   const card = document.createElement("div");
   card.className = "card";
 
   const id = document.createElement("h3");
-  id.textContent = `ID: ${feedback.id}`;
+  id.textContent = `ID: ${feedback.id || "N/A"}`;
   card.appendChild(id);
 
   const locationId = document.createElement("p");
-  locationId.textContent = `Location ID: ${feedback.location_id}`;
+  locationId.textContent = `Location ID: ${feedback.location_id || "N/A"}`;
   card.appendChild(locationId);
 
   const userId = document.createElement("p");
-  userId.textContent = `User ID: ${feedback.user_id}`;
+  userId.textContent = `User ID: ${feedback.user_id || "N/A"}`;
   card.appendChild(userId);
 
   const rating = document.createElement("p");
-  rating.textContent = `Rating: ${feedback.rating}`;
+  rating.textContent = `Rating: ${feedback.rating || "N/A"}`;
   card.appendChild(rating);
 
   const comment = document.createElement("p");
-  comment.textContent = `Comment: ${feedback.comment}`;
+  comment.textContent = `Comment: ${feedback.comment || "N/A"}`;
   card.appendChild(comment);
 
   // Actions
