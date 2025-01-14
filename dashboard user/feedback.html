@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mosque Feedback Dashboard</title>
+    <link rel="stylesheet" href="feedback.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Logo</div>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">Location</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><button id="logout-btn">Logout</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Find Mosques Around You!</h1>
+      <p>
+        Menemukan masjid terdekat yang bisa di datangi oleh anda saat mau sholat
+        jumat!
+      </p>
+      <div class="form-container">
+        <h2>Add Feedback</h2>
+        <form id="feedbackForm">
+          <input
+            type="number"
+            id="location_id"
+            placeholder="Location ID"
+            required
+          />
+          <input type="number" id="user_id" placeholder="User ID" required />
+          <input
+            type="number"
+            id="rating"
+            min="1"
+            max="5"
+            placeholder="Rating (1-5)"
+            required
+          />
+          <textarea id="comment" placeholder="Comment" required></textarea>
+          <button type="submit" id="add-feedback-btn">Add Feedback</button>
+        </form>
+      </div>
+
+      <div class="feedback-list">
+        <h2>Mosque List</h2>
+        <div id="mosqueCards" class="card-container">
+          <!-- Mosque cards will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="feedback.js"></script>
+  </body>
+</html>

@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (!token || role !== "admin") {
     alert("Anda tidak memiliki akses ke halaman ini.");
-    window.location.href = "https://rrq-dev/Frontend-berkah.github.io";
+    window.location.href =
+      "https://rrq-dev.github.io/Frontend-berkah.github.io";
     return;
   }
 
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("userRole");
     alert("Anda telah logout.");
-    window.location.href = "https://rrq-dev/Frontend-berkah.github.io";
+    window.location.href =
+      "https://rrq-dev.github.io/Frontend-berkah.github.io";
   });
 });
 
