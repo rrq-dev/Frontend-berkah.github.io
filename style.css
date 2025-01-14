@@ -3,6 +3,7 @@ body,
 ul,
 li,
 h1,
+h2,
 p,
 button {
   margin: 0;
@@ -11,15 +12,10 @@ button {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   background: #003366; /* Biru tua */
   color: #ffffff; /* Warna teks putih untuk kontras */
   line-height: 1.5;
-}
-
-/* Container */
-.header-section {
-  padding: 32px 16px;
 }
 
 /* Navigation Bar */
@@ -32,7 +28,7 @@ body {
     255,
     255,
     255,
-    0.8
+    0.9
   ); /* Warna putih transparan untuk navbar */
   border-bottom: 4px solid #f4a261; /* Garis pembatas oranye */
   border-radius: 12px; /* Sudut melengkung */
@@ -40,15 +36,10 @@ body {
   margin: 16px; /* Ruang agar radius terlihat */
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
 .logo-title {
-  font-size: 1.8rem; /* Ukuran font untuk judul */
+  font-size: 2rem; /* Ukuran font untuk judul */
   font-weight: bold; /* Font tebal */
-  color: #003cac; /* Warna oranye untuk judul */
+  color: #f4a261; /* Warna oranye untuk judul */
 }
 
 /* Menu */
@@ -125,13 +116,6 @@ body {
   color: #003366; /* Warna biru tua untuk teks utama */
 }
 
-h2 {
-  font-size: 1.9rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #003366; /* Warna biru tua untuk teks utama */
-}
-
 .hero-content p {
   font-size: 1rem;
   margin-bottom: 16px;
@@ -146,6 +130,7 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 .hero-content .hero-btn:hover {

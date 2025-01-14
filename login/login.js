@@ -64,8 +64,11 @@ loginForm.addEventListener("submit", async (event) => {
 
       // Arahkan pengguna berdasarkan peran
       if (data.user && data.user.role === "admin") {
-        window.location.href = "dashboard.html"; // Halaman untuk admin
+        window.location.href =
+          "https://rrq-dev.github.io/Frontend-berkah.github.io/login/dashboard.html"; // Halaman untuk admin
       } else if (data.user && data.user.role === "user") {
+        // Simpan status login dan arahkan ke homepage
+        localStorage.setItem("isLoggedIn", "true");
         window.location.href =
           "https://rrq-dev.github.io/Frontend-berkah.github.io"; // Halaman untuk pengguna biasa
       } else {
@@ -82,4 +85,32 @@ loginForm.addEventListener("submit", async (event) => {
     submitButton.disabled = false;
     submitButton.textContent = "Log In";
   }
+});
+
+// Cek status login saat halaman dimuat
+window.addEventListener("load", () => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const profileBtn = document.getElementById("profile-btn");
+  const logoutBtn = document.getElementById("logout-btn");
+  const loginBtn = document.getElementById("login-btn");
+  const signupBtn = document.getElementById("signup-btn");
+
+  if (isLoggedIn) {
+    loginBtn.style.display = "none";
+    signupBtn.style.display = "none";
+    profileBtn.style.display = "inline-block";
+    logoutBtn.style.display = "inline-block";
+  } else {
+    profileBtn.style.display = "none";
+    logoutBtn.style.display = "none";
+  }
+});
+
+// Event listener untuk tombol logout
+document.getElementById("logout-btn").addEventListener("click", () => {
+  localStorage.removeItem("jwtToken");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("userRole");
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "index.html"; // Kembali ke halaman utama setelah logout
 });

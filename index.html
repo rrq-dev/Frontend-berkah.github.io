@@ -5,95 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jumat Berkah</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main js/main.js" defer></script>
+    <script src="/main js/main.js" defer></script>
   </head>
   <body>
-    <!-- main -->
-    <section class="header-section">
-      <header class="nav-bar">
-        <div class="logo">
-          <h1 class="logo-title">Jumat Berkah</h1>
-        </div>
-        <nav class="menu">
-          <ul>
-            <li>
-              <a
-                href="https://rrq-dev.github.io/Frontend-berkah.github.io/dashboard_user/feedback.html"
-                >Feedback</a
-              >
-            </li>
-            <li><a href="#">Location</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="auth-buttons">
-          <a
-            href="https://rrq-dev.github.io/Frontend-berkah.github.io/login/login.html"
-            >Login</a
-          >
-          <a
-            href="https://rrq-dev.github.io/Frontend-berkah.github.io/register/register.html"
-            class="sign-up"
-            >Sign up</a
-          >
-        </div>
-        <div class="hamburger" id="hamburger">
-          <span>Mencari</span>
-          <span>Masjid</span>
-          <span>Dengan mudah</span>
-        </div>
-      </header>
+    <header class="nav-bar">
+      <div class="logo">
+        <h1 class="logo-title">Jumat Berkah</h1>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="">Feedback</a></li>
+          <li><a href="#">Location</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="#" id="login-btn">Login</a>
+        <a href="#" id="signup-btn" class="sign-up">Sign up</a>
+        <a href="#" id="profile-btn" class="profile-btn" style="display: none"
+          >Profile</a
+        >
+        <a href="#" id="logout-btn" class="logout-btn" style="display: none"
+          >Logout</a
+        >
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
 
-      <div class="hero-section">
-        <div class="hero-content">
-          <h1>Find Mosques Around You!</h1>
-          <p>
-            Menemukan masjid terdekat yang bisa di datangi oleh anda saat mau
-            sholat jumat!
-          </p>
-          <button class="hero-btn">Explore Locations</button>
+    <main class="hero-section">
+      <div class="hero-content">
+        <h1>Find Mosques Around You!</h1>
+        <p>
+          Menemukan masjid terdekat yang bisa di datangi oleh anda saat mau
+          sholat jumat!
+        </p>
+        <button class="hero-btn">Explore Locations</button>
+      </div>
+      <h2>Preview Locations</h2>
+      <div class="hero-images">
+        <!-- Masjid Alhafidz -->
+        <div class="card map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d588.8342540252988!2d107.57326689619806!3d-6.867953251101461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e4200339ff69%3A0xfb475bb8416ee11d!2sPPIQ-368%20Masjid%20Alhafidz!5e0!3m2!1sid!2sid!4v1735892449085!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
         </div>
-        <h2>Preview Locations</h2>
-        <div class="hero-images">
-          <!-- Masjid Alhafidz -->
-          <div class="card map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d588.8342540252988!2d107.57326689619806!3d-6.867953251101461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e4200339ff69%3A0xfb475bb8416ee11d!2sPPIQ-368%20Masjid%20Alhafidz!5e0!3m2!1sid!2sid!4v1735892449085!5m2!1sid!2sid"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <!-- Masjid Al Fath Setra Duta -->
-          <div class="card map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.126255996961!2d107.5736275!3d-6.8754729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e42778857b93%3A0x7e89a281c32d7a8e!2sMasjid%20Al%20Fath!5e0!3m2!1sid!2sid!4v1735892136554!5m2!1sid!2sid"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <!-- Masjid Al falah Sariasih -->
-          <div class="card map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.124254715669!2d107.57315017410596!3d-6.8757129672741275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e72fac544dbb%3A0x5fa0af145e2461a3!2sMasjid%20Al%20Falah%20Sariasih!5e0!3m2!1sid!2sid!4v1735892246545!5m2!1sid!2sid"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+        <!-- Masjid Al Fath Setra Duta -->
+        <div class="card map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.126255996961!2d107.5736275!3d-6.8754729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e42778857b93%3A0x7e89a281c32d7a8e!2sMasjid%20Al%20Fath!5e0!3m2!1sid!2sid!4v1735892136554!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <!-- Masjid Al falah Sariasih -->
+        <div class="card map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.124254715669!2d107.57315017410596!3d-6.8757129672741275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e72fac544dbb%3A0x5fa0af145e2461a3!2sMasjid%20Al%20Falah%20Sariasih!5e0!3m2!1sid!2sid!4v1735892246545!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
-    </section>
+    </main>
+
     <footer class="footer">
       <div class="footer-container">
         <p>Connecting people to the right places, for the right reasons.</p>
