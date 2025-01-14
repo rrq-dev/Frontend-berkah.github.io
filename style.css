@@ -45,14 +45,13 @@ body {
   align-items: center;
 }
 
-.logo-img {
-  height: 50px; /* Atur tinggi logo sesuai kebutuhan */
-  width: 50px; /* Atur lebar logo sesuai kebutuhan */
-  border-radius: 50%; /* Membuat logo bulat */
-  object-fit: cover; /* Memastikan gambar tidak terdistorsi */
-  margin-right: 16px; /* Ruang antara logo dan menu */
+.logo-title {
+  font-size: 1.8rem; /* Ukuran font untuk judul */
+  font-weight: bold; /* Font tebal */
+  color: #003cac; /* Warna oranye untuk judul */
 }
 
+/* Menu */
 .menu ul {
   display: flex;
   gap: 24px;
@@ -70,6 +69,7 @@ body {
   color: #2a9d8f; /* Warna hijau saat hover */
 }
 
+/* Auth Buttons */
 .auth-buttons a {
   display: inline-block;
   padding: 12px 20px;
@@ -200,21 +200,6 @@ h2 {
   max-width: 1200px;
   margin: 0 auto;
   gap: 20px;
-}
-
-.footer-logo {
-  max-width: 300px;
-}
-
-.footer-logo img {
-  width: 120px;
-  margin-bottom: 10px;
-}
-
-.footer-logo p {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: #d1d5db;
 }
 
 .footer-contact h4 {
