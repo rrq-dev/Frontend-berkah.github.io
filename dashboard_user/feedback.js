@@ -114,10 +114,15 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const locationId = document.getElementById("location_id").value;
-    const userId = document.getElementById("user_id").value;
-    const rating = document.getElementById("rating").value;
+    // Capture values and convert to numbers where necessary
+    const locationId = parseInt(
+      document.getElementById("location_id").value,
+      10
+    );
+    const userId = parseInt(document.getElementById("user_id").value, 10);
+    const rating = parseInt(document.getElementById("rating").value, 10);
     const comment = document.getElementById("comment").value;
+
     const token = localStorage.getItem("jwtToken");
 
     const feedbackData = {
@@ -208,9 +213,9 @@ function handleEdit(feedback) {
   addFeedbackBtn.parentNode.replaceChild(newBtn, addFeedbackBtn);
 
   newBtn.addEventListener("click", async function saveChanges() {
-    const updatedLocationId = locationIdInput.value.trim();
-    const updatedUserId = userIdInput.value.trim();
-    const updatedRating = ratingInput.value.trim();
+    const updatedLocationId = parseInt(locationIdInput.value.trim(), 10);
+    const updatedUserId = parseInt(userIdInput.value.trim(), 10);
+    const updatedRating = parseInt(ratingInput.value.trim(), 10);
     const updatedComment = commentInput.value.trim();
     const token = localStorage.getItem("jwtToken");
 
