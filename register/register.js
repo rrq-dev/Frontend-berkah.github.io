@@ -10,7 +10,7 @@ registerForm.addEventListener("submit", async (event) => {
   const confirmPassword = document
     .getElementById("confirm-password")
     .value.trim();
-
+  //pp
   // Debugging: Check values
   console.log("Username:", username);
   console.log("Email:", email);
