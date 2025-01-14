@@ -121,7 +121,6 @@ document
     event.preventDefault();
 
     // Capture values
-    const userId = document.getElementById("userId").value; // Assuming you have a user ID field
     const name = document.getElementById("name").value; // Assuming you have a name field
     const address = document.getElementById("address").value; // Assuming you have an address field
     const description = document.getElementById("description").value; // Assuming you have a description field
@@ -131,7 +130,6 @@ document
     const token = localStorage.getItem("jwtToken");
 
     const feedbackData = {
-      user_id: userId,
       name: name,
       address: address,
       description: description,
@@ -226,7 +224,7 @@ function handleEdit(feedback) {
 
   newBtn.addEventListener("click", async function saveChanges() {
     const updatedFeedback = {
-      id: feedback.id,
+      id: feedback.id, // ID is taken from the feedback object
       user_id: userIdInput.value,
       name: nameInput.value,
       address: addressInput.value,
