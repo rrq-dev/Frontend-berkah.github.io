@@ -97,10 +97,12 @@ button {
   padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
 }
 
 button:hover {
   background-color: #ff6f61; /* Button hover color */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .card-container {
@@ -139,10 +141,12 @@ button:hover {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
 }
 
 .card button:hover {
   background-color: #ff6f61; /* Card button hover color */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Media Queries for Responsiveness */

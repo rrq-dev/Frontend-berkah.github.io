@@ -39,17 +39,15 @@ async function loadFeedback(token) {
 
     const feedbacks = result.data; // Get array data from `data` property
 
-    const feedbackTable = document
-      .getElementById("feedbackTable")
-      .getElementsByTagName("tbody")[0];
+    const feedbackList = document.getElementById("feedbackList");
 
     // Clear previous content
-    feedbackTable.innerHTML = "";
+    feedbackList.innerHTML = "";
 
-    // Add each feedback to the table
+    // Add each feedback to the list as a card
     feedbacks.forEach((feedback) => {
-      const newRow = createTableRow(feedback);
-      feedbackTable.appendChild(newRow);
+      const feedbackCard = createFeedbackCard(feedback);
+      feedbackList.appendChild(feedbackCard);
     });
   } catch (error) {
     console.error("Error saat memuat data:", error);
@@ -57,55 +55,53 @@ async function loadFeedback(token) {
   }
 }
 
-// Function to create a table row
-function createTableRow(feedback) {
-  const newRow = document.createElement("tr");
+// Function to create a feedback card
+function createFeedbackCard(feedback) {
+  const card = document.createElement("div");
+  card.className = "card";
 
-  // ID cell
-  const idCell = document.createElement("td");
-  idCell.textContent = feedback.id;
-  newRow.appendChild(idCell);
+  const id = document.createElement("h3");
+  id.textContent = `ID: ${feedback.id}`;
+  card.appendChild(id);
 
-  // Location ID cell
-  const locationIdCell = document.createElement("td");
-  locationIdCell.textContent = feedback.location_id;
-  newRow.appendChild(locationIdCell);
+  const locationId = document.createElement("p");
+  locationId.textContent = `Location ID: ${feedback.location_id}`;
+  card.appendChild(locationId);
 
-  // User ID cell
-  const userIdCell = document.createElement("td");
-  userIdCell.textContent = feedback.user_id;
-  newRow.appendChild(userIdCell);
+  const userId = document.createElement("p");
+  userId.textContent = `User ID: ${feedback.user_id}`;
+  card.appendChild(userId);
 
-  // Rating cell
-  const ratingCell = document.createElement("td");
-  ratingCell.textContent = feedback.rating;
-  newRow.appendChild(ratingCell);
+  const rating = document.createElement("p");
+  rating.textContent = `Rating: ${feedback.rating}`;
+  card.appendChild(rating);
 
-  // Comment cell
-  const commentCell = document.createElement("td");
-  commentCell.textContent = feedback.comment;
-  newRow.appendChild(commentCell);
+  const comment = document.createElement("p");
+  comment.textContent = `Comment: ${feedback.comment}`;
+  card.appendChild(comment);
 
-  // Actions cell
-  const actionsCell = document.createElement("td");
+  // Actions
+  const actionsDiv = document.createElement("div");
+  actionsDiv.style.display = "flex"; // Flexbox for buttons
+  actionsDiv.style.justifyContent = "space-between"; // Space between buttons
 
   // Edit button
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
   editBtn.className = "edit-btn"; // Add CSS class
   editBtn.addEventListener("click", () => handleEdit(feedback));
-  actionsCell.appendChild(editBtn);
+  actionsDiv.appendChild(editBtn);
 
   // Delete button
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
   deleteBtn.className = "delete-btn"; // Add CSS class
   deleteBtn.addEventListener("click", () => handleDelete(feedback.id));
-  actionsCell.appendChild(deleteBtn);
+  actionsDiv.appendChild(deleteBtn);
 
-  newRow.appendChild(actionsCell);
+  card.appendChild(actionsDiv);
 
-  return newRow;
+  return card;
 }
 
 // Function to create feedback
@@ -199,10 +195,11 @@ function handleEdit(feedback) {
   const ratingInput = document.getElementById("rating");
   const commentInput = document.getElementById("comment");
 
-  locationIdInput.value = feedback.location_id;
-  userIdInput.value = feedback.user_id;
-  ratingInput.value = feedback.rating;
-  commentInput.value = feedback.comment;
+  // Set values for editing
+  locationIdInput.value = feedback.location_id || ""; // Ensure it's not undefined
+  userIdInput.value = feedback.user_id || ""; // Ensure it's not undefined
+  ratingInput.value = feedback.rating || ""; // Ensure it's not undefined
+  commentInput.value = feedback.comment || ""; // Ensure it's not undefined
 
   // Change button text to Save Changes
   const addFeedbackBtn = document.getElementById("add-feedback-btn");
