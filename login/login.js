@@ -66,7 +66,8 @@ loginForm.addEventListener("submit", async (event) => {
       if (data.user && data.user.role === "admin") {
         window.location.href = "dashboard.html"; // Halaman untuk admin
       } else if (data.user && data.user.role === "user") {
-        window.location.href = "https://rrq-dev/Frontend-berkah.github.io"; // Halaman untuk pengguna biasa
+        window.location.href =
+          "https://rrq-dev.github.io/Frontend-berkah.github.io"; // Halaman untuk pengguna biasa
       } else {
         alert("Peran tidak dikenali. Hubungi administrator.");
       }
