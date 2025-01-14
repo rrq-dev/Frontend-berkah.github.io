@@ -73,16 +73,28 @@ body {
   background-color: #21867a; /* Hijau gelap saat hover */
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #2a9d8f; /* Warna hijau */
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
 /* Hero Section */
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: url("path-to-lunchbox-icon.png") 10% 20% repeat,
-    /* Lunchbox motif */ url("path-to-location-icon.png") 90% 80% repeat,
-    /* Location motif */ #f4a261; /* Oranye */
-  background-size: 150px, 150px; /* Ukuran motif */
+  background: #f4a261; /* Oranye */
   padding: 40px;
   border-radius: 12px; /* Sudut melengkung */
   margin: 16px;
@@ -124,17 +136,6 @@ h2 {
 
 .hero-content .hero-btn:hover {
   background: #21867a; /* Hijau gelap saat hover */
-}
-
-.trusted {
-  margin-top: 16px;
-  font-size: 0.875rem;
-  color: #fef9ef; /* Warna krem */
-}
-
-.rating {
-  color: #2a9d8f; /* Warna hijau */
-  font-weight: bold;
 }
 
 /* Hero Images Section */
@@ -202,35 +203,6 @@ h2 {
   color: #d1d5db;
 }
 
-.footer-links {
-  min-width: 150px;
-}
-
-.footer-links h4 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links ul li {
-  margin-bottom: 8px;
-}
-
-.footer-links ul li a {
-  text-decoration: none;
-  color: #ffffff; /* Warna putih */
-  transition: color 0.3s;
-}
-
-.footer-links ul li a:hover {
-  color: #fef9ef; /* Krem saat hover */
-}
-
 .footer-contact h4 {
   font-size: 1rem;
   margin-bottom: 10px;
@@ -257,26 +229,15 @@ h2 {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .menu {
-    display: none;
-  }
-
-  .auth-buttons {
-    display: none;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-
-  .mobile-menu-close {
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
 @media (max-width: 768px) {
+  .menu {
+    display: none; /* Hide menu on mobile */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
   .hero-content h1 {
     font-size: 2rem;
   }

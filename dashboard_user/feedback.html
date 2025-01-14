@@ -9,16 +9,21 @@
   </head>
   <body>
     <header>
-      <h1>Feedback Management</h1>
-      <button id="logout-btn">Logout</button>
+      <div class="logo">Feedback</div>
+      <nav>
+        <ul>
+          <li><a href="#feedbackFormSection">Home</a></li>
+          <li><a href="#feedbackListSection">Location</a></li>
+          <li><button id="logout-btn">Logout</button></li>
+        </ul>
+      </nav>
     </header>
 
-    <main>
-      <section id="feedbackFormSection">
+    <main class="container">
+      <section id="feedbackFormSection" class="form-container">
         <h2>Tambah/Edit Feedback</h2>
         <form id="feedbackForm">
           <input type="hidden" id="userId" value="10" />
-          <!-- Assuming user ID is fixed or retrieved from context -->
           <div>
             <label for="name">Name:</label>
             <input type="text" id="name" required />
@@ -49,6 +54,10 @@
         <!-- Tempat untuk menampilkan daftar feedback -->
       </section>
     </main>
+
+    <footer>
+      <p>&copy; 2025 Feedback Management. All rights reserved.</p>
+    </footer>
 
     <script src="feedback.js"></script>
     <!-- Link ke file JavaScript -->
